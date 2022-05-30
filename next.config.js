@@ -1,6 +1,15 @@
-/** @type {import('next').NextConfig} */
+// default setup next js
 const nextConfig = {
   reactStrictMode: true,
-}
+};
 
-module.exports = nextConfig
+// setup windi css
+const WindiCSSWebpackPlugin = require("windicss-webpack-plugin");
+
+module.exports = {
+  nextConfig,
+  webpack(config) {
+    config.plugins.push(new WindiCSSWebpackPlugin());
+    return config;
+  },
+};
